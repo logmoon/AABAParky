@@ -29,6 +29,7 @@ main (int argc, char *argv[])
   add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 
   windows_init();
+  windows_show_window(AABAwindowGererParking);
 
   /*
    * The following code was added by Glade to create one of each component

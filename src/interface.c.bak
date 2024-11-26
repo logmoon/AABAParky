@@ -402,10 +402,6 @@ create_AABAwindowAjouter (void)
   gtk_widget_show (label3);
   gtk_box_pack_start (GTK_BOX (hbox3), label3, FALSE, FALSE, 0);
 
-  g_signal_connect ((gpointer) AABAbuttonAjouterEnregistrer, "clicked",
-                    G_CALLBACK (on_AABAbuttonAjouterEnregistrer_clicked),
-                    NULL);
-
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (AABAwindowAjouter, AABAwindowAjouter, "AABAwindowAjouter");
   GLADE_HOOKUP_OBJECT (AABAwindowAjouter, AABAfixedAjouter, "AABAfixedAjouter");

@@ -1,5 +1,5 @@
-#ifndef TREEVIEW_H
-#define TREEVIEW_H
+#ifndef UTILS_H
+#define UTILS_H
 
 #include <gtk/gtk.h>
 #include <stdarg.h>
@@ -67,4 +67,20 @@ void tv_clear_rows(GtkTreeView *treeview) {
     gtk_list_store_clear(GTK_LIST_STORE(model));
 }
 
-#endif // TREEVIEW_H
+char* get_combo_box_text(GtkWidget* combo_box) {
+    int active_index = gtk_combo_box_get_active(GTK_COMBO_BOX(combo_box));
+    if (active_index == -1) return NULL;
+
+    GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combo_box));
+    GtkTreeIter iter;
+    
+    if (gtk_tree_model_iter_nth_child(model, &iter, NULL, active_index)) {
+        char *text;
+        gtk_tree_model_get(model, &iter, 0, &text, -1);
+        return text;
+    }
+    
+    return NULL;
+}
+
+#endif // UTILS_H
